@@ -1,0 +1,9 @@
+{
+    "name": "nodejs-ioc-container",
+    "version": "1.0.0",
+    "author": {
+        "name": "Dexter Nguyen"
+    },
+    "main": "index",
+    "description": "NodeJs Ioc Container"
+}
