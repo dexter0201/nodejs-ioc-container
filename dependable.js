@@ -10,11 +10,11 @@ function Dependable(container, deps, action) {
 }
 
 Dependable.prototype.destroy = function () {
-    if (this.container.resolved[this.name] === this) {
+    if (this.container.resolved && this.container.resolved[this.name] === this) {
         delete this.container.resolved[this.name];
     }
     
-    if (this.container.unresolved[this.name] === this) {
+    if (this.container.unresolved && this.container.unresolved[this.name] === this) {
         delete this.container.unresolved[this.name];
     }
     

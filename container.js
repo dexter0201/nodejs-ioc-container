@@ -121,4 +121,16 @@ Container.prototype.notifyResolved = function (dependable) {
     }
 };
 
+Container.prototype.unRegister = function (depName) {
+    var resolve = this.resolved[depName];
+    
+    if (resolve) {
+        destroyAndDelete(this.resolved, depName);
+    }
+    
+    this.consumers.forEach(function (consumer) {
+        console.log(consumer);
+    });
+};
+
 module.exports = Container;
