@@ -1,4 +1,4 @@
-nodejs-ico-container
+nodejs-ioc-container
 ===================
 
 This project will be supported:
@@ -11,22 +11,20 @@ Usage
 #### Create a Container
 A Container is a single unit of dependency handling. It registers dependencies and resolves them for dependency consumers.
 ```javascript
-var Container = require('nodejs-ioc-container').Container;
+var container = require('nodejs-ioc-container').getContainer();
 
-var container = new Container();
 container.register(...
 container.resolve(...
 container.get(...
-//once/if you're done with your container, then don't forget to
 container.destroy();
 ```
 
-#### Register a dependency
+#### Register a Dependency
 ```javascript
-container.register('connection',connection);
+container.register('connection', connection);
 ```
 `connection` is either an object or a function that will return a connection object.
-You cannot register functions that will depend on other dependencies - this you can do with v1.0.0
+You cannot register functions that will depend on other dependencies - this you can do with v1.0.0 - https://github.com/dexter0201/nodejs-ioc-container/releases/tag/v1.0.0
 
 
 #### Consume dependencies
@@ -41,10 +39,10 @@ container.get('connection', function(connection) {
     }
 });
 ```
-In the above example, if the `get` is called before connection is registered, you will get `undefined`.
+In the above example, if the `get` is called before connection is registered, you will get `null`.
 
 ##### resolve
-If you have a function that needs a connection, you
+If you have a function that needs a connection, use
 ```javascript
 container.resolve('connection', function(connection) {/*use connection*/});
 ```
