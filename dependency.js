@@ -23,7 +23,7 @@ Dependency.prototype.fire = function () {
     return this.hasResult ? this.result : Dependable.prototype.fire.call(this);
 };
 
-Dependable.prototype.runAction = function () {
+Dependency.prototype.runAction = function () {
     this.hasResult = true;
     this.result = Dependable.prototype.runAction.call(this);
     this.resolved = null;
